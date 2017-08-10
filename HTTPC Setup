@@ -1,0 +1,140 @@
+
+
+
+Username stark
+
+iud 1000
+guid 1000
+
+
+*********************************************************************
+                                PORTS
+*********************************************************************
+
+                 Docker Machin            Outward facing
+
+Muximux              80                         8085
+Sonarr              8989                        8989
+CouchPotato         5050                        5050
+Radarr              7878                        7878
+
+
+
+
+
+*******************************************************************
+                              Applications
+*******************************************************************
+
+__________________________________________________________________
+                               Muximux
+__________________________________________________________________
+
+docker create                           \
+  --name=muximux                        \
+  -v /opt/muximux:/config               \
+  -e PGID=1000 -e PUID=1000             \
+  -e TZ=Australia/Perth -p 8085:80      \
+  linuxserver/muximux
+
+
+
+
+
+
+Shell Access
+        docker exec -it muximux /bin/bash
+
+Logs
+        docker logs -f muximux
+
+Container Version
+        docker inspect -f '{{ index .Config.Labels "build_version" }}' muximux
+
+Image Version
+        docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/muximux
+
+
+________________________________________________________________
+                          Sonarr
+________________________________________________________________
+
+
+docker create                                           \
+    --name sonarr                                       \
+    -p 8989:8989                                        \
+    -e PUID=1000 -e PGID=<GID                         \
+    -e TZ=Australia/Perth                                    \
+    -v /etc/localtime:/etc/localtime:ro                 \
+    -v /opt/sonarr:/config                       \
+    -v /mnt/tv/Series:/tv                           \
+    -v <path/to/downloadclient-downloads>:/downloads    \
+    linuxserver/sonarr
+
+
+
+It is important that you either set -v /etc/localtime:/etc/localtime:ro or the
+TZ variable, mono will throw exceptions without one of them set.
+
+
+Container Version Number
+          docker inspect -f '{{ index .Config.Labels "build_version" }}' sonarr
+
+Image Version Number
+          docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/sonarr
+
+____________________________________________________________
+                      CouchPotato
+____________________________________________________________
+
+docker create                           \
+      --name=couchpotato                \
+      -v /opt/couchpotato:/config       \
+      -v /mnt/Movies/Down:/downloads    \
+      -v /mnt/Movies/Movies:/movies     \
+      -e PGID=1000 -e PUID=1000         \
+      -e TZ=Australia/Perth             \
+      -e UMASK_SET=0777                 \
+      -p 5050:5050                      \
+linuxserver/couchpotato
+
+
+Shell
+    docker exec -it couchpotato /bin/bash
+
+Container version
+    docker inspect -f '{{ index .Config.Labels "build_version" }}' couchpotato
+
+Image Version Number
+    docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/couchpotato
+
+
+___________________________________________________________
+                         Radarr
+___________________________________________________________
+
+
+docker create                               \
+  --name=radarr                             \
+    -v /opt/radarr:/config               \
+    -v /mnt/Movies/down:/downloads            \
+    -v /mnt/Movies/Movies:/movies               \
+    -v /etc/localtime:/etc/localtime:ro     \
+    -e TZ=Australia/Perth                        \
+    -e PGID=1000 -e PUID=1000             \
+    -p 7878:7878                            \
+linuxserver/radarr
+
+
+
+
+Container Version
+          docker inspect -f '{{ index .Config.Labels "build_version" }}' radarr
+
+Image Version
+          docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/radarr
+
+
+_____________________________________________________
+                    Mylar
+_____________________________________________________
