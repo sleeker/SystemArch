@@ -1,10 +1,16 @@
-SystemArch
-Docker compose file for;
+SystemArch 
+
+Note please ignore old HTPC Setup file
+
+This is is just for the docker-compose.yml
+
+The following will install 
 
 Sabnzbd
 Sonarr v4 (Development
 Radarr
 Lidarr
+
 
 This will create 4 docker containers under 1 service. They can be started and stopped all at once.
 
