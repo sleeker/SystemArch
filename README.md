@@ -1,9 +1,3 @@
-SystemArch 
-
-Note please ignore old HTPC Setup file
-
-This is is just for the docker-compose.yml
-
 The following will install 
 
 Sabnzbd
@@ -26,10 +20,7 @@ Lidarr   port 8686
 
 Directory Structure
 
-I have created /opt/htpc where I have placed this YAML file and all the config files for the listed programs
-
-
-Program Directories
+Please clone this repository into the /opt directory and it will create the following.
 
 /opt/htpc..
 /opt/htpc/docker-compose.yml                 This file
@@ -38,6 +29,9 @@ Program Directories
 /opt/htpc/lidarr                             Linked to the lidarr Config Directory /config
 /opt/htpc/sabnzbd                            Linked to the sabnzbd Config Directory /config
 
+
+
+You will have to create the mediadirectories yourself. 
 
 Media Directories 
 
