@@ -10,7 +10,7 @@ services:
     volumes:
       - /opt/htpc/sonarr:/config
       - /mnt/media/tv:/tv #optional
-      - /mnt/media/downloads/complete:/downloads #optional
+      - /mnt/downloads/complete:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
     volumes:
       - /opt/htpc/radarr:/config
       - /mnt/media/movies:/movies #optional
-      - /mnt/media/downloads/complete:/downloads #optional
+      - /mnt/downloads/complete:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -50,7 +50,7 @@ services:
       - PGID=1000
       - TZ=Australia/Perth
     volumes:
-      - /opt/htpc/lidarr/config:/config
+      - /opt/htpc/lidarr:/config
       - /mnt/media/music:/music #optional
       - /mnt/downloads/complete:/downloads #optional
     ports:
