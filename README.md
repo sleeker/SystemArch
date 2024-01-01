@@ -53,3 +53,11 @@ docker compose pull
 docker compuse up -d
 
 Then log into the machine on the above ports and start your configuration. 
+
+
+
+Last install is xpenology
+
+https://www.wundertech.net/how-to-install-xpenology-on-proxmox-dsm-7/
+
+
