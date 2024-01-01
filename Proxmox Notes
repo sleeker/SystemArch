@@ -1,0 +1,23 @@
+This is the Locktan Proxmox Server
+proxmox.locktan.au 192.168.1.115
+Webmin proxweb.locktan.au
+
+This server contains a number of Machines
+
+Plexus
+192.158.1.102
+Ubuntu VM that runs
+
+PlexMediaServer
+
+Docker with the following repos SABNZB Sonarr Radarr
+
+Todo Radarr4k (4k instance)
+
+https://quickbox.io/knowledge-base/v3/applications-v3/radarr-radarr4k-applications-v3/radarr-radarr4k-quick-reference/
+
+RadarrSync to sync Radarr instances https://hub.docker.com/r/funkypenguin/radarrsync
+
+Xpenology
+syn.locktan.au 192.168.1.111
+VM running Diskstation
