@@ -9,8 +9,8 @@ services:
       - TZ=Australia/Perth
     volumes:
       - /opt/htpc/sonarr:/config
-      - /mnt/media/tv:/tv #optional
-      - /mnt/downloads/complete:/downloads #optional
+      - /DS1819/Video:/tv #optional
+      - /DS1819/Downloads:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -23,8 +23,8 @@ services:
       - TZ=Australia/Perth
     volumes:
       - /opt/htpc/radarr:/config
-      - /mnt/media/movies:/movies #optional
-      - /mnt/downloads/complete:/downloads #optional
+      - /DS1819/Video:/movies #optional
+      - /DS1819/Downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -37,8 +37,8 @@ services:
       - TZ=Australia/Perth
     volumes:
       - /opt/htpc/sabnzbd:/config
-      - /mnt/downloads/complete:/downloads #optional
-      - /mnt/downloads/incomplete:/incomplete-downloads #optional
+      - /DS1819/Downloads:/downloads #optional
+      - /DS1819/Downloads/incomplete:/incomplete-downloads #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -51,8 +51,8 @@ services:
       - TZ=Australia/Perth
     volumes:
       - /opt/htpc/lidarr:/config
-      - /mnt/media/music:/music #optional
-      - /mnt/downloads/complete:/downloads #optional
+      - /DS1819/Music:/music #optional
+      - /DS1819/Downloads:/downloads #optional
     ports:
       - 8686:8686
     restart: unless-stopped
